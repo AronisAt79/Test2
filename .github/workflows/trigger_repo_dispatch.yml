@@ -6,6 +6,8 @@ on:
 jobs:
   Prover-benches-via-repo-dispatch-from-halo2-fork:
     runs-on: ubuntu-latest
+    env:
+      TOKEN: ${{ secrets.PAT }}
     steps:
       - name: Install curl
         run: |
@@ -13,11 +15,18 @@ jobs:
           sudo apt-get install curl
       - name: Send repo api call
         run: |
-          curl \
+          curl   \
            -X POST \
            -H "Accept: application/vnd.github.v3+json" \
-           -u AronisAt79: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 \
+           -H  "Authorization: Token token=${{ env.PAT }}" \
            https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
            -d '{"ref":"main"}'
+          
+          #curl \
+          # -X POST \
+          # -H "Accept: application/vnd.github.v3+json" \
+          # -u AronisAt79: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 \
+          # https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
+          # -d '{"ref":"main"}'
         #run: |
         #  curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages
