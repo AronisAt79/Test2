@@ -4,7 +4,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  Send-a-repo-dispatch-signal-to-circuits  
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Install curl
@@ -12,8 +12,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install curl -y
     - name: send repo api call   
-        run: curl   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages
-        shell: bash
+        run: |
+          curl   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages
+       # shell: bash
 
 #jobs:
 #  Explore-GitHub-Actions:
