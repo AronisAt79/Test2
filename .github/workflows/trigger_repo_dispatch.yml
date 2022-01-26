@@ -5,7 +5,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  Send a repo-dispatch signal to circuits  
+  Send a repo-dispatch signal to circuits:
     runs-on: ubuntu-latest
     steps: 
       - name: Send api all
