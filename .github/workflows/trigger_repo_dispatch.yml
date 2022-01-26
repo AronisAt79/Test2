@@ -4,7 +4,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  Run prover benches workflow via repo-dispatch from halo2 fork:
+  Prover-benches-via-repo-dispatch-from-halo2-fork:
     runs-on: ubuntu-latest
     steps:
       - name: Install curl
