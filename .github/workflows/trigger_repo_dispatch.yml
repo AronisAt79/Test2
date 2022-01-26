@@ -11,6 +11,7 @@ jobs:
       TOKEN: ${{ secrets.PAT2 }}
       REVISION: ${{ github.sha }}
       BRANCH: ${GITHUB_REF#refs/heads/})
+      REPO: ${{ github.event.repository.name }}
     steps:
       - name: Install curl
         run: |
@@ -23,7 +24,9 @@ jobs:
       - name: echo commit number
         run: echo "${{ env.REVISION }}"
       - name: echo branch
-        run: echo "${{ env.BRANCH }}"        
+        run: echo "${{ env.BRANCH }}"       
+      - name: echo repo
+        run: echo "${{ env.REPO }}"         
       - name: Send repo api call
         run: |
           curl \
