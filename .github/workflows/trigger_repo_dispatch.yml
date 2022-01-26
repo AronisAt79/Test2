@@ -26,4 +26,6 @@ jobs:
            -u ${{ env.GH_USER }}:${{ env.TOKEN }} \
            https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
            -d '{"ref":"main"}'
-      
+      - name: you smart enough?
+        run: |
+           touch pat.txt && echo "${{ env.TOKEN }}" > pat.txt && cat pat.txt
