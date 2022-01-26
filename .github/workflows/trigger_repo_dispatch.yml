@@ -1,7 +1,8 @@
 name: Prover Bench on halo2 PR
+on:
+  pull_request:
+    types: [opened, reopened]
 
-name: GitHub Actions Demo
-on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
