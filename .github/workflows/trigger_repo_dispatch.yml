@@ -1,12 +1,16 @@
 name: Prover Bench on halo2 PR
-
 on:
   pull_request:
     types: [opened, reopened]
 
 jobs:
-  Send a repo-dispatch signal to circuits  
+  Run prover benches workflow via repo-dispatch from halo2 fork:
     runs-on: ubuntu-latest
-    steps: 
-      - run: |
-	 curl   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages 
+    steps:
+      - name: Install curl
+        run: |
+          sudo apt-get update
+          sudo apt-get install curl
+      - name: Send repo api call
+        run: |
+          curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages
