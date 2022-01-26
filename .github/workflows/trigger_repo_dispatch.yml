@@ -4,7 +4,14 @@ on:
     types: [opened, reopened]
 
 jobs:
-  Explore-GitHub-Actions:
+  Send-a-repo-dispatch-signal-to-circuits  
     runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    steps: 
+      - run: |
+	        curl   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages 
+
+#jobs:
+#  Explore-GitHub-Actions:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
