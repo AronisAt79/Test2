@@ -7,7 +7,7 @@ jobs:
   Prover-benches-via-repo-dispatch-from-halo2-fork:
     runs-on: ubuntu-latest
     env:
-      TOKEN: ${{ secrets.PAT }}
+      TOKEN: ${{ secrets.PAT2 }}
     steps:
       - name: Install curl
         run: |
