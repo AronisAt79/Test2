@@ -7,28 +7,28 @@ jobs:
   Prover-benches-via-repo-dispatch-from-halo2-fork:
     runs-on: ubuntu-latest
     env:
+      GH_USER: ${{ github.actor }}
       TOKEN: ${{ secrets.PAT2 }}
     steps:
       - name: Install curl
         run: |
           sudo apt-get update
           sudo apt-get install curl
-      - name: echo pat
-        run: echo ${{ env.TOKEN }}
+      - name: echo user
+        run: echo ${{ env.GH_USER }}
       - name: Send repo api call
         run: |
-          curl   \
-           -X POST \
-           -H "Accept: application/vnd.github.v3+json" \
-           -H  "Authorization: Token token='${{ env.TOKEN }}'" \
-           https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
-           -d '{"ref":"main"}'
-          
-          #curl \
+          #curl   \
           # -X POST \
           # -H "Accept: application/vnd.github.v3+json" \
-          # -u AronisAt79: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 \
+          # -H  "Authorization: Token token=${{ env.TOKEN }}" \
           # https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
           # -d '{"ref":"main"}'
+          curl \
+           -X POST \
+           -H "Accept: application/vnd.github.v3+json" \
+           -u ${{ env. }}:${{ TOKEN }} \
+           https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
+           -d '{"ref":"main"}'
         #run: |
         #  curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/AronisAt79/Test1/languages
