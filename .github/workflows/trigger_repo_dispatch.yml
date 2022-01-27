@@ -19,8 +19,8 @@ jobs:
           sudo apt-get install curl
       - name: echo user
         run: echo "${{ env.GH_USER }}"
-      - name: echo secret
-        run: echo "${{ env.TOKEN }}"
+#      - name: echo secret
+#        run: echo "${{ env.TOKEN }}"
       - name: echo commit number
         run: echo "${{ env.REVISION }}"
       - name: echo branch
