@@ -36,7 +36,7 @@ jobs:
            https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
            -d '{"ref":"main",
                 "inputs":{
-                   "event_type":halo2_wfdispatch"
+                   "event-type":halo2_wfdispatch"
                 }
            }'
       
