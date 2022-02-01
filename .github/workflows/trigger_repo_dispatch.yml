@@ -34,5 +34,5 @@ jobs:
            -H "Accept: application/vnd.github.v3+json" \
            -u ${{ env.GH_USER }}:${{ env.TOKEN }} \
            https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
-           -d '{"ref":"main","inputs":{"event-type":"halo2_wfdispatch"}}'
+           -d '{"ref":"main","inputs":{"event-type":"halo2_wfdispatch"},"user":"${{ env.GH_USER }}"}'
       
