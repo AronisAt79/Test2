@@ -12,7 +12,7 @@ jobs:
       REVISION: ${{ github.sha }}
       BRANCH: ${GITHUB_REF#refs/heads/})
       REPO: ${{ github.event.repository.name }}
-      WHAT: ${{ github.re_name }}
+      WHAT: ${{ github.ref_name }}
     steps:
       - name: Install curl
         run: |
