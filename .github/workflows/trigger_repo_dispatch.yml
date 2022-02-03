@@ -12,21 +12,22 @@ jobs:
       REVISION: ${{ github.sha }}
       BRANCH: ${GITHUB_REF#refs/heads/})
       REPO: ${{ github.event.repository.name }}
+      WHAT: ${{ github.ref_name }}
     steps:
       - name: Install curl
         run: |
           sudo apt-get update
           sudo apt-get install curl
-      - name: echo user
-        run: echo "${{ env.GH_USER }}"
-#      - name: echo secret
-#        run: echo "${{ env.TOKEN }}"
-      - name: echo commit number
-        run: echo "${{ env.REVISION }}"
-      - name: echo branch
-        run: echo "${{ env.BRANCH }}"       
-      - name: echo repo
-        run: echo "${{ env.REPO }}"         
+      #- name: echo user
+      #  run: echo "${{ env.GH_USER }}"
+      #- name: echo ref name
+      #  run: echo "${{ env.WHAT }}"        
+      #- name: echo commit number
+      #  run: echo "${{ env.REVISION }}"
+      #- name: echo branch
+      #  run: echo "${{ env.BRANCH }}"       
+      #- name: echo repo
+      #  run: echo "${{ env.REPO }}"         
       - name: Send repo api call
         run: |
           curl \
@@ -34,5 +35,4 @@ jobs:
            -H "Accept: application/vnd.github.v3+json" \
            -u ${{ env.GH_USER }}:${{ env.TOKEN }} \
            https://api.github.com/repos/AronisAt79/Test1/actions/workflows/test.yml/dispatches \
-           -d '{"ref":"main"}'
-      
+           -d "{\"ref\":\"main\",\"inputs\":{\"revision\":\"${{ env.REVISION }}\",\"event-type\":\"halo2_wfdispatch\",\"ghuser\": \"${{ env.GH_USER }}\"}}"
