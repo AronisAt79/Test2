@@ -18,16 +18,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install curl
-      - name: echo user
-        run: echo "${{ env.GH_USER }}"
-      - name: echo ref name
-        run: echo "${{ env.WHAT }}"        
-      - name: echo commit number
-        run: echo "${{ env.REVISION }}"
-      - name: echo branch
-        run: echo "${{ env.BRANCH }}"       
-      - name: echo repo
-        run: echo "${{ env.REPO }}"         
+      #- name: echo user
+      #  run: echo "${{ env.GH_USER }}"
+      #- name: echo ref name
+      #  run: echo "${{ env.WHAT }}"        
+      #- name: echo commit number
+      #  run: echo "${{ env.REVISION }}"
+      #- name: echo branch
+      #  run: echo "${{ env.BRANCH }}"       
+      #- name: echo repo
+      #  run: echo "${{ env.REPO }}"         
       - name: Send repo api call
         run: |
           curl \
