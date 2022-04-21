@@ -1,12 +1,18 @@
 name: Update PR comments
 
-on:
+#on:
   # This number should correspond to the IGNORE_RUNS_OLDER_THAN value below.
   # When setting up for the first time, use "on: push" instead of "on: schedule"
   # and set IGNORE_RUNS_OLDER_THAN to a very high number until it runs once.
-  schedule:
-    - cron: '* * * * *'
+#  schedule:
+#    - cron: '*/15 * * * *'
 
+on:
+  pull_request_target:
+    types: [assigned, opened, synchronize, reopened]
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+    
 jobs:
   pr_updater:
     runs-on: ubuntu-latest
