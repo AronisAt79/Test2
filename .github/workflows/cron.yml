@@ -1,11 +1,13 @@
 name: Update PR comments
 
 on:
+  push
+#on:
   # This number should correspond to the IGNORE_RUNS_OLDER_THAN value below.
   # When setting up for the first time, use "on: push" instead of "on: schedule"
   # and set IGNORE_RUNS_OLDER_THAN to a very high number until it runs once.
-  schedule:
-    - cron: '*/5 * * * *'
+#  schedule:
+#    - cron: '*/5 * * * *'
 
 jobs:
   pr_updater:
