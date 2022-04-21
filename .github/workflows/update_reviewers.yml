@@ -1,11 +1,8 @@
 name: Update PR Reviewers
 
 on:
-  pull_request_target:
-    types: [assigned, opened, synchronize, reopened]
-  pull_request:
-    types: [assigned, opened, synchronize, reopened]
-
+  schedule:
+    - cron: '*/5 * * * *'
 jobs:
   update_reviewers:
     runs-on: ubuntu-latest
