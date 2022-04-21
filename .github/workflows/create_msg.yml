@@ -1,11 +1,14 @@
 name: Demo CI
 
-
 on:
-  pull_request_target:
-    types: [assigned, opened, synchronize, reopened]
-  pull_request:
-    types: [assigned, opened, synchronize, reopened]
+  schedule:
+    - cron: '*/5 * * * *'
+
+#on:
+#  pull_request_target:
+#    types: [assigned, opened, synchronize, reopened]
+#  pull_request:
+#    types: [assigned, opened, synchronize, reopened]
 
 jobs:
 
