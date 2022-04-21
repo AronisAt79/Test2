@@ -42,7 +42,7 @@ jobs:
           #       (uses a hidden magical header to identify our comment)
           #     * either create or update the comment with the new text (if changed)
           #
-
+          set -x
           export GITHUB_API="https://api.github.com/repos/$GITHUB_REPOSITORY"
           export COMMENT_MAGIC_HEADER='<!--'" Do not edit. This comment will be auto-updated with artifact '$MSG_ARTIFACT_NAME' created by action '$WORKFLOW_NAME' -->"
 
